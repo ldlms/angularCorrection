@@ -9,6 +9,16 @@
             <app-article-element
             *ngFor="let articleElement of mesArticles"
             [artElement]="articleElement">
+            <div class="card mb-1 bg-info">
+                <div class="card-header">{{articleElement.title}}</div>
+                <div class="card-body">
+                  <!-- <h5 class="card-title">{{element.type}}</h5> -->
+                  <p class="card-text">
+                    <strong *ngIf="articleElement.type==='article'" class="text-primary">{{articleElement.content}}</strong>
+                    <em *ngIf="articleElement.type==='brouillon'" class="text-dark">{{articleElement.content}}</em>
+                </p>
+                </div>
+              </div>
             </app-article-element>
         </div>
     </div>

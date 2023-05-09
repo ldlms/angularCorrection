@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-blog-control',
@@ -9,12 +9,16 @@ export class BlogControlComponent {
 
   newArticleTitle='';
   newArticleContent='';
+  @ViewChild('articleContentInput',{static:true})articleContentInput:ElementRef
   @Output()articleCreated=new EventEmitter<{articleTitle:String,articleContent:String}>();
   @Output()brouillonCreated=new EventEmitter<{articleTitle:String,articleContent:String}>();
-  onAddArticle(){
-    this.articleCreated.emit({articleTitle:this.newArticleTitle,articleContent:this.newArticleContent})
+  onAddArticle(laRef,articleContentInput:HTMLInputElement){
+    // console.log(laRef)
+    // console.log(laRef.value)
+    this.articleCreated.emit({articleTitle:laRef.value,articleContent:this.articleContentInput.nativeElement.value})
   }
-  onAddBrouillon(){
-    this.brouillonCreated.emit({articleTitle:this.newArticleTitle,articleContent:this.newArticleContent})
+  onAddBrouillon(laRef,articleContentInput:HTMLInputElement){
+    console.log(this.articleContentInput.nativeElement);
+    this.brouillonCreated.emit({articleTitle:laRef.value,articleContent:this.articleContentInput.nativeElement.value})
   }
 }
