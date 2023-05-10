@@ -1,25 +1,65 @@
-<div class="container-fluid bg-success p-4">
-    <app-blog-control (articleCreated)="onArticleAdded($event)" (brouillonCreated)="onAddBrouillonAdded($event)"></app-blog-control>
-    <div class="row mt-1">
-        <div class="col">
+<div class="container-fluid bg-app p-1">
+  <div class="row">
+    <div class="col">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/albums">Albums</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users">Users</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!-- <div class="container-fluid bg-success p-4"> -->
+    <!-- <app-blog-control (articleCreated)="onArticleAdded($event)" (brouillonCreated)="onAddBrouillonAdded($event)"></app-blog-control> -->
+    <!-- <div class="row mt-1"> -->
+        <!-- <div class="col"> -->
             <!-- <app-article-element
             *ngFor="let articleElement of mesArticles"
             [element]="articleElement">
             </app-article-element> -->
-            <app-article-element
-            *ngFor="let articleElement of mesArticles"
-            [artElement]="articleElement">
-            <div class="card mb-1 bg-info">
-                <div class="card-header">{{articleElement.title}}</div>
-                <div class="card-body">
+            <!-- <app-article-element -->
+            <!-- *ngFor="let articleElement of mesArticles" -->
+            <!-- [artElement]="articleElement"> -->
+            <!-- <div class="card mb-1 bg-info"> -->
+                <!-- <div class="card-header">{{articleElement.title}}</div> -->
+                <!-- <div class="card-body"> -->
                   <!-- <h5 class="card-title">{{element.type}}</h5> -->
-                  <p class="card-text">
-                    <strong *ngIf="articleElement.type==='article'" class="text-primary">{{articleElement.content}}</strong>
-                    <em *ngIf="articleElement.type==='brouillon'" class="text-dark">{{articleElement.content}}</em>
-                </p>
+                  <!-- <p class="card-text"> -->
+                    <!-- <strong *ngIf="articleElement.type==='article'" class="text-primary">{{articleElement.content}}</strong> -->
+                    <!-- <em *ngIf="articleElement.type==='brouillon'" class="text-dark">{{articleElement.content}}</em> -->
+                <!-- </p>
                 </div>
               </div>
             </app-article-element>
         </div>
+    </div> -->
+<!-- </div> -->
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-new-profile></app-new-profile>
+      <hr>
+      <app-profile
+      *ngFor="let unProfil of profiles;let i=index"
+      [profile]="unProfil"
+      [id]="i"
+      ></app-profile>
     </div>
-</div>
+  </div>
+</div> -->
+

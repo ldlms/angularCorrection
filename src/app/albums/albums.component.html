@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+    <div class="list-group">
+      <a
+      *ngFor="let album of albums"
+      class="list-group-item">{{album.name}}
+    </a>
+    </div>
+  </div>
+  <div class="col">
+    <app-edit-album></app-edit-album>
+    <hr>
+    <app-album></app-album>
+  </div>
+</div>

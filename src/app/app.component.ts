@@ -1,11 +1,17 @@
-import { Component,} from '@angular/core';
+import { Component, OnInit,OnChanges,DoCheck} from '@angular/core';
+import { ProfilesService } from './profiles.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[ProfilesService]
 })
-export class AppComponent {
+export class AppComponent implements OnChanges, OnInit, DoCheck {
+  constructor(private profilesService:ProfilesService){
+
+  }
+  profiles:{name:string,status:string}[]=[];
   mesArticles=[
     {
       type:'article',
@@ -31,4 +37,22 @@ export class AppComponent {
       }
     )
   }
+  ngOnInit(){
+    this.profiles = this.profilesService.profiles;
+  }
+  ngOnChanges(){
+    this.profiles = this.profilesService.profiles;
+  }
+  ngDoCheck(): void {
+    this.profiles = this.profilesService.profiles;
+  }
+
+  // onProfileAdded(newProfile:{name:string,status:string}){
+  //   this.profiles.push(newProfile);
+  // }
+
+  // onStatusChanged(updateInfo:{id:number,newStatus:string}){
+  //   this.profiles[updateInfo.id].status = updateInfo.newStatus;
+  // }
 }
+
